@@ -43,6 +43,8 @@ if [ ! -f "$HERE"/slack.env ]; then
     exit 2
 fi
 
+[ ! -d ./logs ] && mkdir -p ./logs
+
 source "$HERE"/slack.env
 
 node ./main.js
