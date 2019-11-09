@@ -37,6 +37,12 @@ trap cleanup EXIT
 
 cd "$HERE"
 
+if [ ! -f "$HERE"/slack.env ]; then
+    echo This requires a file in "$HERE" named slack.env, which exports the SLACK_TOKEN value.
+    echo Exiting.
+    exit 2
+fi
+
 source "$HERE"/slack.env
 
 node ./main.js
